@@ -5,3 +5,64 @@
  @import 'bootstrap';
  @import "**/*";
 
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background-image: url("navbar-back.png");
+  background-position: cover;
+  background-repeat: repeat;
+}
+
+ .main-content {
+    width: 90%;
+    min-height: auto;
+    padding-top: 0;
+    box-shadow: 0px 2px 4px 4px #ccc;
+    background-image: url("koch-template-splash.png");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+   splash-top {
+    margin-bottom: 2rem;
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .splash-bottom {
+    margin-bottom: 3rem;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding-left: 1rem;
+  }
+  
+  @media (max-width: 700px) {
+
+    .main-content {
+    background-size: auto;
+    }
+
+    .button-login, .button-signup {
+        width: 100%;
+        
+    }
+
+    .card-body  .card-text {
+      display: none;
+    }
+  }
+
+  button {
+    margin-right: 1rem;
+  }

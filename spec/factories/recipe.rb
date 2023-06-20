@@ -1,7 +1,7 @@
 FactoryBot.define do
     factory :recipe do
-      name { "Tuna Salad" }
-      description { "It is a dish made of Tuna fish and Salad" }
+      name { Faker::Hipster.sentence}
+      description { Faker::Hipster.paragraph }
       association(:user)
     end
   end

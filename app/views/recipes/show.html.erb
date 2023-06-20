@@ -1,0 +1,42 @@
+ 
+  <%= render 'layouts/header' %>
+  <div class="container details-page d-flex flex-column">
+  <div class="d-flex align-items-center">
+      <h2 class="recipe_detail_name"><%= @recipe.name %></h2>
+      <% if current_user.id == @recipe.user_id %>
+        <div class="button_public_class d-flex align-items-center">
+        <%= button_to recipe_path(@recipe.id), class: 'btn', method: :put do %>
+          <% if @recipe.public %>
+            <i class="fa-solid fa-toggle-on btn-on"></i>
+          <% else %>
+            <i class="fa-solid fa-toggle-off btn-off"></i>
+          <% end %>
+        <% end %>
+        </div>
+          
+        <% end %>
+       <p>Public</p>
+
+        </div>
+  <section class='public_recipe d-flex flex-column'>
+      <p><b>Preparation time: </b><%= @recipe.preparation_time %> hour</p>
+      <p><b>Cooking time: </b><%= @recipe.cooking_time %> hour</p>
+    <%= form_with model: @recipe do |f|%>
+            <div class="form-group my-4 w-20">
+            <b> Description: </b><br>
+            <%= f.text_area :description, value: @recipe.description, class: 'col-3' %>
+            <br>
+            <%= f.submit 'Update Instruction', class: 'add_recipe_btn my-2' %>
+            </div>
+    <% end %>
+    
+  </section>
+
+  <% if current_user.id == @recipe.user_id %>
+      <div class="d-flex align-items-start">
+          <%= button_to 'Generate Shopping List', class: 'button-login' %>
+          <%= button_to 'Add Ingredient', class: 'button-signup' %>
+      </div>
+  <% end %>
+
+</div>

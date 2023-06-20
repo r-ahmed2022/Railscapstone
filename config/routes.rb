@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'devise/registrations',
+    sessions: 'devise/sessions'
+  }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  root "welcome#index"
+    devise_scope :user do
+      authenticated do
+      root to: 'recipes#index', as: 'user'
+      end
+      unauthenticated do
+        root to: 'welcome#index', as: 'unauthenticated_root'
+      end
+      get 'users/sign_out', to: 'devise/sessions#destroy'
+  end
+  resources :recipes
 end

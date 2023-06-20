@@ -1,18 +1,24 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-html, body {
-}
 
 header {
     height: 10%;
-    background-color: #ccc;
+    
+    background-color: transparent;
     a{
         text-transform:capitalize;
         text-decoration: none;
-        color: #fff;
+        color: #1c1c1c;
     }
+}
+
+.card-title a {
+    text-decoration: none;
+}
+
+.menu {
+     width: 40%;
+     list-style: none;
+     li {
+        margin-right: 1rem;
+     }
 }

@@ -105,6 +105,8 @@ GEM
     execjs (2.8.1)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
+    faker (3.2.0)
+      i18n (>= 1.8.11, < 2)
     ffi (1.15.5-x64-mingw-ucrt)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -273,6 +275,7 @@ DEPENDENCIES
   debug
   devise (~> 4.9)
   factory_bot
+  faker (~> 3.2)
   importmap-rails
   jbuilder
   pg (~> 1.1)

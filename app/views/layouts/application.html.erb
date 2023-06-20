@@ -11,19 +11,16 @@
     <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
+ 
   <body>
-  <header class="container mt-4 mb-4">
-    <a href="https://render.com">
-      Header
-    </a>
-  </header>
-  <main class="container">
-    <%= yield %>
-  </main>
   <div>
      <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
   </div>
+  <main class="container main-content">
+      <%= yield %>
+  </main>
+  
+      <script src="https://kit.fontawesome.com/b89d57aeef.js" crossorigin="anonymous"></script>
   </body>
 </html>
