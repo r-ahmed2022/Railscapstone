@@ -61,6 +61,24 @@ html, body {
     .card-body  .card-text {
       display: none;
     }
+    .menu {
+      width: 100%;
+      font-size: 80%;
+      display: flex;
+      align-items:center;
+      justify-content: start;
+      margin-left: 0;
+      img {
+        width: 60%;
+        height: auto;
+        align-self: start;
+      }
+     
+    }
+    .user-info h5 {
+      display:none;
+    }
+   
   }
 
   button {

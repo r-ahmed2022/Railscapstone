@@ -6,12 +6,16 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
     devise_scope :user do
       authenticated do
-      root to: 'recipes#index', as: 'user'
+      root to: 'foods#index', as: 'user'
       end
       unauthenticated do
         root to: 'welcome#index', as: 'unauthenticated_root'
       end
       get 'users/sign_out', to: 'devise/sessions#destroy'
   end
-  resources :recipes
+  resources :foods
+  resources :recipes do
+    resources :ingredients
+  end
+
 end

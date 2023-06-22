@@ -9,11 +9,19 @@ class RecipesController < ApplicationController
     end
 
     def new 
-        @recipe = current_user.recipes.new
+       # @recipe = current_user.recipes.new
+       # @recipe.ingredients.build
+       @recipe = current_user.recipes.build
+       @foods = Food.all
+
+    end
+
+    def edit
+      @recipe.ingredients.build
     end
 
     def create
-        @recipe = current_user.recipes.new(input_verify)
+        @recipe = current_user.recipes.build(input_verify)
         if @recipe.save 
          flash[:notice] = "Recipe created succesfully"
          redirect_to recipes_path
@@ -23,8 +31,7 @@ class RecipesController < ApplicationController
         end
     end
 
-    def edit
-    end
+   
 
     def update
       @recipe = Recipe.find(params[:id])
@@ -48,6 +55,7 @@ class RecipesController < ApplicationController
 
     private 
     def input_verify
-      @recipe = params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description)
+      @recipe = params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description,
+      ingredients_attribute:[:id, :quantity, :_destroy])
     end
-end
+  end
