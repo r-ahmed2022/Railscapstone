@@ -9,8 +9,6 @@ class RecipesController < ApplicationController
     end
 
     def new 
-       # @recipe = current_user.recipes.new
-       # @recipe.ingredients.build
        @recipe = current_user.recipes.build
        @foods = Food.all
 

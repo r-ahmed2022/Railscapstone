@@ -22,20 +22,20 @@
       <p><b>Preparation time: </b><%= @recipe.preparation_time %> hour</p>
       <p><b>Cooking time: </b><%= @recipe.cooking_time %> hour</p>
     <%= form_with model: @recipe do |f|%>
-            <div class="form-group my-4 w-20">
-            <b> Description: </b><br>
-            <%= f.text_area :description, value: @recipe.description, class: 'col-3' %>
-            <br>
-            <%= f.submit 'Update Instruction', class: 'add_recipe_btn my-2' %>
+            <div class="form-group d-flex flex-column">
+                <b> Steps: </b>
+                <%= f.text_area :description, value: @recipe.description, class: 'w-50', style: 'height: 100px; border: 0;' %>
+                <%= f.submit 'Update', class: 'add_recipe_btn align-self-start my-1' %>
+
             </div>
     <% end %>
     
   </section>
 
   <% if current_user.id == @recipe.user_id %>
-      <div class="d-flex align-items-start">
-          <%= button_to 'Generate Shopping List',  class: 'button-login' %>
-          <%= link_to 'Add Ingredient', new_recipe_ingredient_path(@recipe), class: 'button-signup' %>
+      <div class="d-flex align-items-center w-100">
+          <%= link_to 'Generate Shopping List', class: 'button-login', style: 'w-50' %>
+          <%= link_to 'Add Ingredient', new_recipe_ingredient_path(@recipe), class: 'button-signup w-50', style: 'w-50' %>
 
       </div>
   <% end %>
