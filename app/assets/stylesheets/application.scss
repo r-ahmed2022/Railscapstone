@@ -22,7 +22,7 @@ html, body {
     min-height: auto;
     padding-top: 0;
     box-shadow: 0px 2px 4px 4px #ccc;
-    background-image: url("koch-template-splash.png");
+    background-image: url("koch-template-splash-2.png");
     background-position: center;
     background-repeat: no-repeat;
   }
@@ -47,10 +47,11 @@ html, body {
     padding-left: 1rem;
   }
   
-  @media (max-width: 700px) {
+  @media (max-width: 500px) {
 
     .main-content {
     background-size: auto;
+    
     }
 
     .button-login, .button-signup {
@@ -81,6 +82,3 @@ html, body {
    
   }
 
-  button {
-    margin-right: 1rem;
-  }

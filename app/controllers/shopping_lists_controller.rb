@@ -7,10 +7,10 @@ class ShoppingListsController < ApplicationController
         @ingredients = Ingredient.where(recipes: @recipes)
     
         @ingredients.each do |ingredient|
-          missing_quantity = ingredient.food.quantity - ingredient.quantity
+          quantity = ingredient.food.quantity - ingredient.quantity
           @food_items << ingredient
           @total += 1
-          @total_price += missing_quantity * ingredient.food.price
+          @total_price += quantity * ingredient.food.price
         end
       end
 end
