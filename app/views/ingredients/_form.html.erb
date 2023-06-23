@@ -17,7 +17,7 @@
     <%= form.number_field :quantity, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field my-3">
     <%= form.label :food_id %>
     <%= form.collection_select :food_id, current_user.foods, :id, :name, { prompt: 'Select Food' } %>
   </div> 
@@ -25,7 +25,7 @@
 
 
   <div>
-    <%= form.submit %>
+    <%= form.submit 'Add Ingredient', class: 'button-signup border-0 my-2' %>
   </div>
 <% end %>
 
