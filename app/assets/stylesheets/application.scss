@@ -19,10 +19,11 @@ html, body {
 
  .main-content {
     width: 90%;
-    min-height: auto;
+    height: 100vh;
     padding-top: 0;
     box-shadow: 0px 2px 4px 4px #ccc;
     background-image: url("koch-template-splash-2.png");
+    background-size: auto;
     background-position: center;
     background-repeat: no-repeat;
   }

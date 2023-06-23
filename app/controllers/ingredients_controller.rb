@@ -16,9 +16,10 @@
 
     def create
       @ingredient = current_user.ingredients.build(ingredient_params)
+      @recipe = current_user.recipes.find(params[:recipe_id])
       respond_to do |format|
         if @ingredient.save
-          format.html { redirect_to recipe_path(current_user, @ingredient.recipe), notice: 'Ingredient saved successfully' }
+          format.html { redirect_to recipe_path(@recipe), notice: 'Ingredient saved successfully' }
           format.json { render :show, status: :created, location: @ingredient }
         else
           format.html { render :new, status: :unprocessable_entity }
@@ -52,7 +53,7 @@
       @ingredient.destroy
 
       respond_to do |format|
-        format.html { redirect_to ingredients_url, notice: 'Ingredient was successfully destroyed.' }
+        format.html { redirect_to recipe_ingredient_url, notice: 'Ingredient was successfully destroyed.' }
         format.json { head :no_content }
       end
     end
