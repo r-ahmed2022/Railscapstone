@@ -13,13 +13,13 @@
   <% end %>
 
   <div>
-    <%= form.label :quantity, style: "display: block" %>
+    <%= form.label :quantity, style: "display: block; my-1;" %>
     <%= form.number_field :quantity, class: 'form-control' %>
   </div>
 
   <div class="field my-3">
-    <%= form.label :food_id %>
-    <%= form.collection_select :food_id, current_user.foods, :id, :name, { prompt: 'Select Food' } %>
+    <%= form.label :food_id, class: 'my-1' %>
+    <%= form.collection_select :food_id, current_user.foods, :id, :name, { prompt: 'Select Food' }, class: 'form-select form-select-lg' %>
   </div> 
      <%= form.hidden_field :recipe_id, value: @recipe.id %>
 
