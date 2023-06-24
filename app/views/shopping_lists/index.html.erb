@@ -7,6 +7,10 @@
         <p> No Shopping List </p>
     <% else %>
         <div class="container table-container">
+         <div class="shopping-list-summary">
+                 <span class="px-2">No of food items: <%= @total %> </span>
+                 <span>Total value: $<%= @total_price %> </span>
+            </div>
             <table class="table table-sm table-warning table-hover table-style w-100">
        <caption  style=" text-align:center; caption-side:top">Shopping List</caption>
       <thead>
@@ -30,9 +34,6 @@
                 <%end%>
                
             </table>
-              <div class="d-flex justify-content-between text-danger me-2">
-                 <span class="px-2">No of food items: <%= @total %> </span>
-                 <span>Total value: $<%= @total_price %> </span>
-            </div>
+             
         </div>
     <% end %>
