@@ -13,9 +13,9 @@
           <% end %>
         <% end %>
         </div>
-          
+         <p>Public</p>
+
         <% end %>
-       <p>Public</p>
 
         </div>
   <section class='public_recipe d-flex flex-column'>
@@ -38,7 +38,8 @@
         <th scope="col">Food</th>
         <th scope="col">Quantity</th>
         <th scope="col">Value</th>
-        <th scope="col">Actions</th>
+        <th scope="col" colspan="2" style="text-align:center;">Actions</th>
+
       </tr>
     </thead>
     <tbody>
@@ -48,7 +49,8 @@
           <td><%= ingredient.quantity %></td>
           <td><%= ingredient.food.price * ingredient.quantity %></td>
           <% if current_user.id == @recipe.user_id %>
-            <td><%= button_to "Delete", recipe_ingredient_path(@recipe, ingredient), method: :delete, class: 'button-login' %></td>
+           <td><%= link_to "Modify", edit_recipe_ingredient_path(ingredient), class: 'button-signup' %></td>
+           <td><%= button_to "Delete", recipe_ingredient_path(@recipe, ingredient), method: :delete, class: 'button-login' %></td>
           <% else %>
             <td>No actions</td>
           <% end %>

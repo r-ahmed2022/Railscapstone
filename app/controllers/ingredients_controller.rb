@@ -9,14 +9,14 @@
     def show; end
 
     def new
-      @ingredient = current_user.ingredients.build
       @recipe = current_user.recipes.find(params[:recipe_id])
+      @ingredient = current_user.ingredients.build
       @foods = Food.all
     end
 
     def create
-      @ingredient = current_user.ingredients.build(ingredient_params)
       @recipe = current_user.recipes.find(params[:recipe_id])
+      @ingredient = current_user.ingredients.build(ingredient_params)
       respond_to do |format|
         if @ingredient.save
           format.html { redirect_to recipe_path(@recipe), notice: 'Ingredient saved successfully' }
@@ -30,15 +30,16 @@
     
 
     def edit
-      @ingredient = current_user.ingredients.find(params[:id])
-      @recipe = current_user.recipe
+    @recipe = @ingredient.recipe
+    @foods = Food.all
     end
 
     def update
-      @ingredient = Ingredient.find(params[:id])
+      @recipe = @ingredient.recipe
+      #@ingredient = Ingredient.find(params[:id])
       respond_to do |format|
         if @ingredient.update(ingredient_params)
-          format.html { redirect_to ingredient_url(@ingredient), notice: 'Ingredient was successfully updated.' }
+          format.html {  redirect_to @recipe, notice: 'Ingredient was successfully updated.' }
           format.json { render :show, status: :ok, location: @ingredient }
         else
           format.html { render :edit, status: :unprocessable_entity }
