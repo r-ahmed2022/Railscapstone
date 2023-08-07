@@ -47,13 +47,13 @@
       </tr>
     </thead>
     <tbody>
-      <% @ingredient.each do |ingredient| %>
+      <% @recipe.ingredients.each do |ingredient| %>
         <tr>
           <td><%= ingredient.food.name %></td>
           <td><%= ingredient.quantity %></td>
           <td><%= ingredient.food.price * ingredient.quantity %></td>
           <% if current_user.id == @recipe.user_id %>
-           <td><%= link_to "Modify", edit_recipe_ingredient_path(ingredient), class: 'button-signup' %></td>
+           <td><%= link_to "Modify", edit_recipe_ingredient_path(@recipe, ingredient), class: 'button-signup' %></td>
            <td><%= button_to "Delete", recipe_ingredient_path(@recipe, ingredient), method: :delete, class: 'button-login' %></td>
           <% else %>
             <td>No actions</td>
