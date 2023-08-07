@@ -20,8 +20,6 @@ gem 'jquery-rails'
 group :development, :test do
   gem 'rspec-rails'
   gem 'rails-controller-testing'
-  gem 'factory_bot'
-  gem  'faker', '~> 3.2'
 end
 
 group :development do
